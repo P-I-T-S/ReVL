@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import java.net.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1300.0" style="-fx-background-color: blue;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="revlfinal.MainController">
+    <top>
+        <HBox fx:id="hbox" prefHeight="59.0" prefWidth="820.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="title" prefHeight="35.0" prefWidth="405.0" style="-fx-background-color: blue;" textOverrun="WORD_ELLIPSIS" underline="true">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                </Label>
+                <Region prefHeight="59.0" prefWidth="106.0" />
+                <Label fx:id="statusBar" alignment="center" prefHeight="39.0" prefWidth="250.0" text="Add/Edit Video Games">
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </Label>
+                <Region prefHeight="59.0" prefWidth="278.0" style="-fx-background-color: blue;" />
+                <TextField fx:id="filterField" alignment="TOP_RIGHT" prefHeight="41.0" prefWidth="225.0" promptText="Search by name">
+                    <HBox.margin>
+                        <Insets right="10.0" />
+                    </HBox.margin>
+                    <padding>
+                        <Insets right="40.0" top="10.0" />
+                    </padding>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </TextField>
+            </children>
+            <stylesheets>
+                <URL value="@styleSheet.css" />
+            </stylesheets>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="myTable" focusTraversable="false" maxWidth="1148.0" minWidth="1148.0" prefHeight="501.0" prefWidth="1148.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="colName" maxWidth="300.0" minWidth="275.0" prefWidth="295.5" text="Name" />
+                <TableColumn fx:id="colSystem" maxWidth="178.0" minWidth="92.0" prefWidth="94.0" text="System" />
+                <TableColumn fx:id="colPreviousAmazon" maxWidth="191.0" minWidth="100.0" prefWidth="155.0" text="Previous Amazon Price" />
+                <TableColumn fx:id="colAmazon" maxWidth="191.0" minWidth="100.0" prefWidth="155.0" text="Current Amazon Price" />
+                <TableColumn fx:id="colPreviousGamestop" maxWidth="191.0" minWidth="100.0" prefWidth="155.0" text="Previous Gamestop Price" />
+                <TableColumn fx:id="colGamestop" maxWidth="191.0" minWidth="100.0" prefWidth="155.0" text="Current Gamestop Price" />
+                <TableColumn fx:id="colSearching" maxWidth="202.0" minWidth="85.0" prefWidth="120.0" text="Searching?" />
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox fx:id="hbox1" prefHeight="100.0" prefWidth="820.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="addItem" mnemonicParsing="false" onAction="#addItemClick" prefHeight="34.0" prefWidth="155.0" snapToPixel="false" text="Add" HBox.hgrow="NEVER">
+                    <HBox.margin>
+                        <Insets top="35.0" />
+                    </HBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#deleteItemClick" prefHeight="34.0" prefWidth="155.0" text="Delete" textFill="#db2c2c" textOverrun="CLIP">
+                    <HBox.margin>
+                        <Insets left="40.0" right="35.0" top="35.0" />
+                    </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+                </Button>
+                <Label fx:id="timeText" text="Updated: 00:00:00 PM" textFill="#eeecec" underline="true">
+                    <HBox.margin>
+                        <Insets left="170.0" top="35.0" />
+                    </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+                </Label>
+                <Button fx:id="refresh" mnemonicParsing="false" onAction="#refresh" prefHeight="34.0" text="Refresh">
+                    <HBox.margin>
+                        <Insets left="80.0" top="35.0" />
+                    </HBox.margin>
+                </Button>
+            <Button fx:id="amazonReport" mnemonicParsing="false" onAction="#generateAmazonReport" prefHeight="34.0" text="Generate Amazon Report">
+                <HBox.margin>
+                    <Insets left="50.0" top="35.0" />
+                </HBox.margin>
+            </Button>
+            <Button fx:id="gamestopReport" layoutX="50.0" layoutY="50.0" mnemonicParsing="false" onAction="#generateGamestopReport" prefHeight="34.0" snapToPixel="false" text="Generate Gamestop Report">
+                <HBox.margin>
+                    <Insets left="60.0" top="35.0" />
+                </HBox.margin>
+            </Button>
+            </children>
+        </HBox>
+    </bottom>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <left>
+        <Region prefHeight="501.0" prefWidth="25.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER" />
+    </left>
+    <right>
+        <AnchorPane fx:id="anchorpane" prefHeight="475.0" prefWidth="41.0" style="-fx-background-color: blue;">
+            <children>
+                <Region prefHeight="496.0" prefWidth="25.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER" />
+            </children>
+        </AnchorPane>
+    </right>
+</BorderPane>
